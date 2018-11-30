@@ -7,15 +7,18 @@ class SecondPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tab: 2
+            tab: 1,
+            
         }
     }
-    switchTag = () =>{
-        //let { currentState, details } = this.props.data;
+
+
+
+    switchTag = (data) =>{
         let currentState ={
             active: false,
-            currentLocation: "Lima, Perú",
-            addressee: "Juan Peréz Peréz"
+            currentLocation: data.localizacion,
+            addressee: data.personaDestino
         }
         let details = {
             places:[
@@ -84,16 +87,18 @@ class SecondPage extends Component {
     }
 
     render() {
+        const {data}=this.props;
+
         return (
             <div className="layout">
-                <h1>Paquete #ASRJE221K23F</h1>
+                <h1>Paquete {data.codigoRastreo}</h1>
                 <div>
                     <div>
                         <span className={this.state.tab === 1 ? "tab tab-selected" : "tab" } onClick={() => this.handleChangeTab(1)}>Situación actual</span>
                         <span className={this.state.tab === 2 ? "tab tab-selected" : "tab" } onClick={() => this.handleChangeTab(2)}>Detalle</span>
                     </div>
                     <div className="big-container">
-                        {this.switchTag()}
+                        {this.switchTag(data)}
                     </div>
                 </div>
             </div>

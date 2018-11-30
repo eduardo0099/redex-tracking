@@ -73,7 +73,7 @@ class DetailsStatus extends Component {
                                                 pressed: { fill: "#f15d14" },
                                             }}
                                         >
-                                            <circle cx={ 0 } cy={ 0 } r={ 7 } />
+                                            <circle cx={ 0 } cy={ 0 } r={ 3 } />
                                         </Marker>
                                     );
                                 })}
