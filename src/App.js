@@ -24,7 +24,12 @@ class App extends Component {
     else{
       API.get("paquetes/tracking", { params: { trackNumber: val } }).then(
         response => {
-          console.log("Data del paquete:",response.data);
+          if(response.data.status === 0){
+            notification.error({
+              message:"El codigo que ha ingresado no pertenece a ningun paquete registrado"
+            })
+            return;
+          }
           this.setState({
             showFirstPage: false,
             data: response.data
