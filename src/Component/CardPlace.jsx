@@ -6,19 +6,19 @@ const CardPlace = props => {
     let date = new Date(item.time);
     return (
         <div className={item.active? "card card-active" : "card"}>
-            <table>
+            <table style={{width:"100%"}}>
                 <tbody>
                     <tr>
                         <td>
-                            {item.title}
+                            {item.titulo}
                         </td>
-                        <td>
-                            {date.toLocaleString()}
+                        <td style={{textAlign:"right"}}>
+                            {item.fecha}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            {item.subTitle}
+                            {item.descripcion}
                         </td>
                         <td></td>
                     </tr>

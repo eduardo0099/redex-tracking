@@ -78,10 +78,6 @@ body{
   position: relative;
 }
 .container-situation{
-  top: 12vh;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
   position: absolute;
   width: 50%;
@@ -89,7 +85,7 @@ body{
   text-align: center;
 }
 .layout{
-  width: 93%;
+  width: 100%;
   margin: 0 auto;
 }
 .tab{
@@ -100,6 +96,9 @@ body{
   border-bottom: 1px solid;
 }
 
+button {
+  border-radius: 5px;
+}
 .tab-selected{
   color: #424141;
 }
@@ -134,7 +133,7 @@ body{
 }
 .card{
   border: 1px solid grey;
-  width: 300px;
+  width: 500px;
   padding: 14px;
   border-left: 7px solid grey;
 }
