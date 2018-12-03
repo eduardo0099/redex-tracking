@@ -20,7 +20,10 @@ class SecondPage extends Component {
         let lista=[];
         //Estado de registro
         let obj1={};
-        obj1.active = false;
+        if(data.estado === "REGISTRADO")
+            obj1.active = true;
+        else        
+            obj1.active = false;
         obj1.isLocation = false;
         obj1.titulo = "Registrado";
         obj1.descripcion = data.personaOrigen;
@@ -29,7 +32,10 @@ class SecondPage extends Component {
         let i=0;
         for (i=0 ;i<data.plan.length;i++){
             let obj2={};
-            obj2.active = false;
+            if(data.plan[i].estado === "ACTIVO" && data.estado === "EN_ALMACEN")
+                obj2.active = true;
+            else
+                obj2.active = false;
             obj2.isLocation = true;
             obj2.titulo = "Esperando vuelo";
             obj2.logitude = data.plan[i].lonI;
@@ -38,7 +44,7 @@ class SecondPage extends Component {
             obj2.fecha = data.plan[i].fechaInicio;
             lista.push(obj2);
             let obj3={};
-            if(data.plan[i].estado === "ACTIVO"){
+            if(data.plan[i].estado === "ACTIVO" && data.estado === "EN_VUELO"){
                 obj3.active = true;
             }else{
                 obj3.active = false;
@@ -50,7 +56,10 @@ class SecondPage extends Component {
             lista.push(obj3);
         }
         let obj4={};
-        obj4.active = false;
+        if(data.estado === "ENTREGADO")
+            obj4.active = true;
+        else
+            obj4.active = false;
         obj4.isLocation = true;
         obj4.titulo = "Entregado";
         obj4.logitude = data.plan[i-1].lonF;
